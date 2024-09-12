@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddyvtx6s8spym"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Crawler.gd" id="1_jwpu7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o2jdm"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fabih"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v7f5b"]
+
+[node name="MainScene" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+mesh = SubResource("BoxMesh_o2jdm")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.8628, 31.3881)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, -5.95416e-16, 2.4663e-16, 2.4663e-16, 0.707107, 0.707107, -5.95416e-16, -0.707107, 0.707107, 2.08165e-12, 10, 2.08165e-12)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_jwpu7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.6, 2.08165e-12)
+mesh = SubResource("CapsuleMesh_fabih")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(2.08165e-12, 0, 0, 0, 2.08165e-12, 0, 0, 0, 2.08165e-12, 2.08165e-12, 1.6, 2.08165e-12)
+shape = SubResource("CapsuleShape3D_v7f5b")
