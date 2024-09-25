@@ -7,7 +7,8 @@ enum CrawlerState {
 	CHANNELING,
 	CASTING,
 	STUNNED,
-	SLEEPING
+	SLEEPING,
+	COOLDOWN
 }
 
 # Current state of the character
